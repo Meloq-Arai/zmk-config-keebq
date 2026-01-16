@@ -1,7 +1,7 @@
-  file_format: "1"
-  id: keebq
-  name: KeebQ
-  type: shield
-  features:
-    - keys
-    - studio
+file_format: "1"
+id: keebq
+name: KeebQ
+type: shield
+features:
+  - keys
+  - studio

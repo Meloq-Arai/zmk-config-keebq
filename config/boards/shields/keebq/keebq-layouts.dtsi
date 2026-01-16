@@ -1,18 +1,22 @@
+#include <physical_layouts.dtsi>
+
 / {
       default_layout: default_layout {
-          compatible = "zmk,physical-layout";
-          display-name = "Default";
+        compatible = "zmk,physical-layout";
+        display-name = "Default";
+        transform = <&default_transform>;
+        kscan = <&default_kscan>;
 
-          keys = <
-              &key_physical_attrs 100 100 0   0   0 0 0
-              &key_physical_attrs 100 100 100 0   0 0 0
-              &key_physical_attrs 100 100 200 0   0 0 0
-              &key_physical_attrs 100 100 0   100 0 0 0
-              &key_physical_attrs 100 100 100 100 0 0 0
-              &key_physical_attrs 100 100 200 100 0 0 0
-              &key_physical_attrs 100 100 0   200 0 0 0
-              &key_physical_attrs 100 100 100 200 0 0 0
-              &key_physical_attrs 100 100 200 200 0 0 0
-          >;
+          keys
+              = <&key_physical_attrs 100 100   0   0   0 0 0>
+              , <&key_physical_attrs 100 100 100   0   0 0 0>
+              , <&key_physical_attrs 100 100 200   0   0 0 0>
+              , <&key_physical_attrs 100 100   0 100   0 0 0>
+              , <&key_physical_attrs 100 100 100 100   0 0 0>
+              , <&key_physical_attrs 100 100 200 100   0 0 0>
+              , <&key_physical_attrs 100 100   0 200   0 0 0>
+              , <&key_physical_attrs 100 100 100 200   0 0 0>
+              , <&key_physical_attrs 100 100 200 200   0 0 0>
+              ;
       };
   };
