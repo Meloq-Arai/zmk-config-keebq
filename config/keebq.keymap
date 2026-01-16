@@ -15,7 +15,7 @@
 
           function_layer {
               bindings = <
-                  &kp F1      &kp F2       &trans
+                  &kp F1      &studio_unlock       &trans
                   &kp C_PREV  &kp N9       &kp C_NEXT
                   &kp C_MUTE  &kp C_VOL_DN &kp C_VOL_UP
               >;
