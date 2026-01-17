@@ -1,14 +1,14 @@
 #include <dt-bindings/led/led.h>
 
-  &pinctrl {
+&pinctrl {
       pio0_spi0_default: pio0_spi0_default {
           group1 {
               pinmux = <PIO0_P26>;
           };
       };
-  };
+};
 
-  &pio0 {
+&pio0 {
       status = "okay";
 
       pio0_spi0: pio0_spi0 {
@@ -40,10 +40,10 @@
                                LED_COLOR_ID_BLUE>;
           };
       };
-  };
+};
 
-  / {
+/ {
       chosen {
           zmk,underglow = &led_strip;
       };
-  };
+};
