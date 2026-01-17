@@ -4,6 +4,8 @@
     pio0_spi0_default: pio0_spi0_default {
         group1 {
             pinmux = <PIO0_P26>;  /* D0 = GPIO 26 */
+            drive-strength = <8>;
+            slew-rate = <1>;
         };
     };
 };
