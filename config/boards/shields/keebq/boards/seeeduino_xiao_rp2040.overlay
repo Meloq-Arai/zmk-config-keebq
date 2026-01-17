@@ -31,7 +31,7 @@
             reg = <0>;
             spi-max-frequency = <4000000>;
 
-            chain-length = <9>;
+            chain-length = <1>;
             spi-one-frame = <0x70>;
             spi-zero-frame = <0x40>;
 
