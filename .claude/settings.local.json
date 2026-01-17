@@ -1,7 +1,13 @@
 {
   "permissions": {
     "allow": [
-      "WebFetch(domain:zmk.dev)"
+      "WebFetch(domain:zmk.dev)",
+      "WebSearch",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:docs.zephyrproject.org)",
+      "WebFetch(domain:wiki.seeedstudio.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:mcuoneclipse.com)"
     ]
   }
 }

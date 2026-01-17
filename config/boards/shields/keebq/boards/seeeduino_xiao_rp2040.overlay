@@ -1,49 +1,37 @@
 #include <dt-bindings/led/led.h>
 
 &pinctrl {
-      pio0_spi0_default: pio0_spi0_default {
-          group1 {
-              pinmux = <PIO0_P26>;
-          };
-      };
+    pio0_ws2812_default: pio0_ws2812_default {
+        ws2812 {
+            pinmux = <PIO0_P26>;
+        };
+    };
 };
 
 &pio0 {
-      status = "okay";
+    status = "okay";
 
-      pio0_spi0: pio0_spi0 {
-          pinctrl-0 = <&pio0_spi0_default>;
-          pinctrl-names = "default";
+    pio_ws2812: ws2812 {
+        compatible = "worldsemi,ws2812-rpi_pico-pio";
+        status = "okay";
+        pinctrl-0 = <&pio0_ws2812_default>;
+        pinctrl-names = "default";
+        gpios = <&gpio0 26 GPIO_ACTIVE_HIGH>;
 
-          compatible = "raspberrypi,pico-spi-pio";
-          #address-cells = <1>;
-          #size-cells = <0>;
-          clocks = <&system_clk>;
-          clock-frequency = <4000000>;
+        chain-length = <9>;
+        color-mapping = <LED_COLOR_ID_GREEN
+                         LED_COLOR_ID_RED
+                         LED_COLOR_ID_BLUE>;
 
-          clk-gpios = <&gpio0 27 GPIO_ACTIVE_HIGH>;
-          mosi-gpios = <&gpio0 26 GPIO_ACTIVE_HIGH>;
-          miso-gpios = <&gpio0 26 GPIO_ACTIVE_HIGH>;
-
-          led_strip: ws2812@0 {
-              compatible = "worldsemi,ws2812-spi";
-
-              reg = <0>;
-              spi-max-frequency = <4000000>;
-
-              chain-length = <9>;
-              spi-one-frame = <0x70>;
-              spi-zero-frame = <0x40>;
-
-              color-mapping = <LED_COLOR_ID_GREEN
-                               LED_COLOR_ID_RED
-                               LED_COLOR_ID_BLUE>;
-          };
-      };
+        /* SK6812 timing - 800kHz protocol */
+        frequency = <800000>;
+        bit-waveform = <3>, <3>, <4>;
+        reset-delay = <280>;
+    };
 };
 
 / {
-      chosen {
-          zmk,underglow = &led_strip;
-      };
+    chosen {
+        zmk,underglow = &pio_ws2812;
+    };
 };
